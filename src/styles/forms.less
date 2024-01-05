@@ -20,6 +20,7 @@
     }
 
     select {
+        margin-top: unset;
         appearance: none;
         background-color: transparent;
 
@@ -34,7 +35,7 @@
             width: 1em;
             height: 1em;
             right: 0.5em;
-            top: 0.9em;
+            top: 0.5em;
             z-index: -1;
             transform: rotate(-90deg);
         }
@@ -44,6 +45,16 @@
 .form-primary {
     --color-form-border: var(--color-primary);
     --color-form-border-selected: var(--color-primary-dark);
+}
+
+.form-secondary {
+    --color-form-border: var(--color-secondary);
+    --color-form-border-selected: var(--color-secondary-dark);
+}
+
+.form-accent {
+    --color-form-border: var(--color-accent);
+    --color-form-border-selected: var(--color-accent-dark);
 }
 
 .select-holder {

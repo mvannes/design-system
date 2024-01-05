@@ -1,0 +1,85 @@
+.form {
+    --color-form-border: inherit;
+    --color-form-border-selected: inherit;
+
+    display: flex;
+    flex-direction: column;
+
+    input, textarea, select {
+        margin-top: 0.5em;
+
+        border: 2px solid var(--color-form-border);
+        border-radius: 0.25em;
+
+        transition: border-color 0.2s ease-in-out, outline-color 0.2s ease-in-out;
+        padding-left: 0.5em;
+        &:hover, &:focus, &:focus-visible {
+            border-color: var(--color-form-border-selected);
+            outline-color: var(--color-form-border-selected);
+        }
+    }
+
+    select {
+        appearance: none;
+        background-color: transparent;
+
+        &:hover, &:focus, &:focus-visible {
+            border-color: var(--color-form-border-selected);
+            outline-color: var(--color-form-border-selected);
+        }
+
+        & + .select-icon {
+            position: absolute;
+            background-image: url("public/icons/arrow-double-left.svg");
+            width: 1em;
+            height: 1em;
+            right: 0.5em;
+            top: 0.9em;
+            z-index: -1;
+            transform: rotate(-90deg);
+        }
+    }
+}
+
+.form-primary {
+    --color-form-border: var(--color-primary);
+    --color-form-border-selected: var(--color-primary-dark);
+}
+
+.select-holder {
+    position: relative;
+}
+
+.input-holder {
+    display: grid;
+    grid-template-columns: minmax(3em, 0.1fr) 1fr;
+    grid-gap: 1em;
+
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    align-items: center;
+
+    label {
+        grid-column: 1 / 1;
+    }
+
+    input, textarea, select {
+        grid-column: 2 / 3;
+    }
+
+    &.error {
+        label {
+            color: var(--color-error);
+        }
+
+        input, textarea, select {
+            --color-form-border: var(--color-error);
+            --color-form-border-selected: var(--color-error);
+        }
+    }
+    & + ul.errors {
+        margin-bottom: 0.5em;
+        color: var(--color-error);
+    }
+}

@@ -1,0 +1,71 @@
+.button {
+    --button-text-color: inherit;
+    --button-main-color: inherit;
+    --button-main-hover-color: inherit;
+    --button-background-color: inherit;
+
+    // Used for transitioning, but defined here instead of elsewhere to allow easier override.
+    --button-background-color-start: inherit;
+    --button-text-color-start: inherit;
+
+    display: flex;
+    align-items: center;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: var(--button-main-color);
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    cursor: pointer;
+    padding: 0.5em;
+
+    transition: background-color 0.2s ease-in-out, border-color 0.2s;
+
+
+    &:disabled {
+        opacity: 30%;
+    }
+
+    &:hover:not(.button-transitioning):not(:disabled) {
+        background-color: var(--button-main-hover-color);
+        border-color: var(--button-main-hover-color);
+    }
+
+    &.button-transitioning {
+        color: var(--button-text-color-start);
+        background-color: var(--button-background-color-start);
+        background-image: radial-gradient(var(--button-main-color), var(--button-main-color));
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 0 0;
+        transition: background-size 0.2s ease-in-out, color 0.2s ease-in-out;
+
+        &:hover:not(:disabled), &:focus:not(:disabled) {
+            background-size: 100% 100%;
+            color: var(--button-text-color);
+        }
+    }
+}
+
+.button-primary {
+    --button-text-color: var(--color-text-secondary);
+    --button-main-color: var(--color-primary);
+    --button-main-hover-color: var(--color-primary-dark);
+    --button-background-color: var(--color-primary);
+    --button-text-color-start: var(--color-primary);
+}
+
+.button-secondary {
+    --button-text-color: var(--color-text-secondary);
+    --button-main-color: var(--color-secondary);
+    --button-main-hover-color: var(--color-secondary-dark);
+    --button-background-color: var(--color-secondary);
+    --button-text-color-start: var(--color-secondary);
+}
+
+.button-accent {
+    --button-text-color: var(--color-text-secondary);
+    --button-main-color: var(--color-accent);
+    --button-main-hover-color: var(--color-accent-dark);
+    --button-background-color: var(--color-accent);
+    --button-text-color-start: var(--color-accent);
+}

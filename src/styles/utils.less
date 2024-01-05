@@ -1,0 +1,3 @@
+.fluid(@variable, @min, @max) {
+    @{variable}: clamp(@min, calc((unit(@max - @min) / 100 ) * 100vw), @max);
+}

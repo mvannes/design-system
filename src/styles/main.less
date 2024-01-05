@@ -1,0 +1,63 @@
+@import "utils";
+
+@color_primary: #3772FF;
+@color_secondary: #FFA500;
+@color_accent: #36C946;
+
+:root {
+    --color-primary: @color_primary;
+    --color-primary-dark: darken(@color_primary, 15%);
+    --color-secondary: @color_secondary;
+    --color-secondary-dark: darken(@color_secondary, 15%);
+    --color-accent: @color_accent;
+    --color-accent-dark: darken(@color_accent, 15%);
+
+    --color-error: #cc0000;
+
+    --color-background: #F7F7F7;
+
+    --color-text-primary: rgb(0, 0, 0);
+    --color-text-secondary: rgb(255, 255, 255);
+
+    --color-shadow: rgba(0, 0, 0, 0.25);
+
+    .fluid(--font-size-regular, 16px, 18px);
+    .fluid(--font-size-heading-regular, 18px, 20px);
+    .fluid(--font-size-heading-medium, 20px, 24px);
+    .fluid(--font-size-heading-large, 24px, 28px);
+
+    --layout-padding-xsmall: 0.5em;
+    --layout-padding-small: 1em;
+    --layout-padding-medium: 2em;
+    --layout-padding-large: 3em;
+
+    .fluid(--layout-padding-page-container, 1.5em, 8em);
+}
+
+html {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-regular);
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    background: var(--color-background);
+    line-height: 1.75em;
+}
+
+a {
+    --color-link-hover: var(--color-text-primary);
+    color: inherit;
+    text-decoration: none;
+
+    &:hover:not(.button) {
+        box-shadow: 0 0.15em 0 0 var(--color-link-hover);
+    }
+}
+
+h1 {
+    font-size: var(--font-size-heading-large);
+}
+
+

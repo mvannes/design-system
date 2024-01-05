@@ -1,0 +1,92 @@
+.checkbox {
+  --color-checkbox-border: inherit;
+  --color-checkbox-border-selected: inherit;
+  --color-checkbox-fill: inherit;
+  --color-checkbox-fill-selected: inherit;
+  --color-checkbox-background: inherit;
+
+  // Needed to hide the hidden input checkbox.
+  // Else, it will still be on top of the page, which will trigger weird scroll behaviour whenever toggled.
+  position: relative;
+
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &:checked + label {
+      &::before {
+        background-color: var(--color-checkbox-fill);
+      }
+      &:hover, &:focus, &:focus-visible {
+        &::before {
+          background-color: var(--color-checkbox-fill-selected);
+        }
+      }
+    }
+
+    &:hover, &:focus, &:focus-visible {
+      &:checked + label {
+        &::before {
+          background-color: var(--color-checkbox-border-selected);
+        }
+      }
+      & + label::before {
+        border-color: var(--color-checkbox-border-selected);
+      }
+    }
+  }
+
+  label {
+    position: relative;
+    padding-left: 2em;
+    cursor: pointer;
+    &::before {
+      content: '';
+      position: absolute;
+      cursor: pointer;
+      left: 0;
+      top: -0.2em;
+      width: 1.5em;
+      height: 1.5em;
+      border: 2px solid var(--color-checkbox-border);
+      background: var(--color-checkbox-background);
+      box-shadow: #F7F7F7 0 0 0 0.15em inset;
+      border-radius: .25em;
+      transition: background-color .275s ease-in-out, border-color .275s ease-in-out;
+    }
+
+    &:hover, &:focus, &:focus-visible {
+      &::before {
+        border-color: var(--color-checkbox-border-selected);
+      }
+    }
+  }
+}
+
+.checkbox-primary {
+  --color-checkbox-border: var(--color-primary);
+  --color-checkbox-border-selected: var(--color-primary-dark);
+  --color-checkbox-fill: var(--color-primary);
+  --color-checkbox-fill-selected: var(--color-primary-dark);
+  --color-checkbox-background: var(--color-background);
+}
+
+.checkbox-secondary {
+  --color-checkbox-border: var(--color-secondary);
+  --color-checkbox-border-selected: var(--color-secondary-dark);
+  --color-checkbox-fill: var(--color-secondary);
+  --color-checkbox-fill-selected: var(--color-secondary-dark);
+  --color-checkbox-background: var(--color-background);
+}
+
+.checkbox-accent {
+  --color-checkbox-border: var(--color-accent);
+  --color-checkbox-border-selected: var(--color-accent-dark);
+  --color-checkbox-fill: var(--color-accent);
+  --color-checkbox-fill-selected: var(--color-accent-dark);
+  --color-checkbox-background: var(--color-background);
+}
+
+

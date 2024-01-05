@@ -1,0 +1,91 @@
+
+.radio {
+    --color-radio-border: inherit;
+    --color-radio-border-selected: inherit;
+    --color-radio-fill: inherit;
+    --color-radio-fill-selected: inherit;
+    --color-radio-background: inherit;
+
+    input[type="radio"] {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &:checked  + label{
+            &::before {
+                background-color: var(--color-radio-fill);
+            }
+            &:hover, &:focus, &:focus-visible {
+                &::before {
+                    background-color: var(--color-radio-fill-selected);
+                }
+            }
+        }
+
+        &:hover, &:focus, &:focus-visible {
+            &:checked + label {
+                &::before {
+                    background-color: var(--color-radio-border-selected);
+                }
+            }
+            & + label::before {
+                border-color: var(--color-radio-border-selected);
+            }
+        }
+    }
+
+    label {
+        position: relative;
+        padding-left: 2em;
+        &::before {
+            content: '';
+            position: absolute;
+            cursor: pointer;
+            left: 0;
+            top: -0.2em;
+            width: 1.5em;
+            height: 1.5em;
+            border: 2px solid var(--color-radio-border);
+            background: var(--color-radio-background);
+            border-radius: 1em;
+            transition: background-color .275s ease-in-out, border-color .275s ease-in-out;
+        }
+
+        &:hover, &:focus, &:focus-visible {
+            &::before {
+                border-color: var(--color-radio-border-selected);
+            }
+        }
+    }
+}
+
+.radio-primary {
+    --color-radio-border: var(--color-primary);
+    --color-radio-border-selected: var(--color-primary-dark);
+    --color-radio-fill: var(--color-primary);
+    --color-radio-fill-selected: var(--color-primary-dark);
+    --color-radio-background: var(--color-background);
+}
+
+.radio-secondary {
+    --color-radio-border: var(--color-secondary);
+    --color-radio-border-selected: var(--color-secondary-dark);
+    --color-radio-fill: var(--color-secondary);
+    --color-radio-fill-selected: var(--color-secondary-dark);
+    --color-radio-background: var(--color-background);
+}
+
+.radio-accent {
+    --color-radio-border: var(--color-accent);
+    --color-radio-border-selected: var(--color-accent-dark);
+    --color-radio-fill: var(--color-accent);
+    --color-radio-fill-selected: var(--color-accent-dark);
+    --color-radio-background: var(--color-background);
+}
+
+.radio-holder {
+    li {
+        margin-top: 0.5em;
+    }
+}
